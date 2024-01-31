@@ -16,7 +16,7 @@ def main() -> None:
 
         print(f"Corresponding color: {color}")
     except ValueError:
-        print("Please enter a valid number. Exiting program...")
+        print("The input must be a valid number! Exiting program...")
 
 
 if __name__ == "__main__":
