@@ -2,7 +2,7 @@ import sys
 
 
 def main() -> None:
-    """Find the minimum, maximum, and average from the user-inputted numbers.
+    """Find the minimum, maximum, and average of the user-inputted numbers.
 
     :return: None
     """
