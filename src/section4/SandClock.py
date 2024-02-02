@@ -1,7 +1,7 @@
 def print_sandclock(rows: int) -> None:
     """Print a sandclock pattern with the specified number of rows.
 
-    :param rows: The number of rows for the upper-half the sandclock.
+    :param rows: The number of rows for the upper-half of the sandclock.
     :return: None
     """
     # Prints the upper half of the sandclock
