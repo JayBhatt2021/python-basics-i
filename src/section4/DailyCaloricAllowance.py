@@ -1,4 +1,5 @@
 SENTINEL = "exit"
+"""The sentinel value to exit the program."""
 
 
 def get_user_input(prompt: str, prompt_type: type) -> type:
