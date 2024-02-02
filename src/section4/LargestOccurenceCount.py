@@ -28,7 +28,7 @@ def main() -> None:
 
         # Prints the results
         print(f"\nLargest integer: {largest}")
-        print(f"Occurrences: {int_frequency[largest]}")
+        print(f"Occurrences: {int_frequency[largest]} times")
 
     except ValueError:
         # Handles the case where the input is not a valid list of integers
