@@ -29,7 +29,7 @@ def perimeter(length: float, width: float) -> float:
 
 
 def main() -> None:
-    """Get user input for rectangle dimensions and display area/perimeter.
+    """Get user input for rectangle dimensions and display area and perimeter.
 
     :return: None
     """
@@ -40,10 +40,10 @@ def main() -> None:
 
         if is_valid(length, width):
             # Displays calculated area and perimeter
-            print(f"Area: {area(length, width)} units^2")
-            print(f"Perimeter: {perimeter(length, width)} units")
+            print(f"\nArea: {area(length, width):.2f} units^2")
+            print(f"Perimeter: {perimeter(length, width):.2f} units")
         else:
-            print("This is an invalid rectangle.")
+            print("\nThis is an invalid rectangle.")
     except ValueError:
         # Handles invalid input type
         print("The length/width must be a float! Exiting program...")
