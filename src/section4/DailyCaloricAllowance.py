@@ -34,6 +34,7 @@ def main() -> None:
 
     :return: None
     """
+    # Localizes each prompt to a variable
     height_prompt = "\nEnter the height (in inches): "
     weight_prompt = "\nEnter the weight (in pounds): "
     age_prompt = "\nEnter the age (in years): "
@@ -46,6 +47,7 @@ def main() -> None:
         "physically active job.\nEnter the level of exercise: "
     )
 
+    # Defines the prompts and their corresponding types
     prompts = {
         height_prompt: float,
         weight_prompt: float,
@@ -65,6 +67,7 @@ def main() -> None:
             for prompt, prompt_type in prompts.items()
         }
 
+        # Extracts the user inputs to their corresponding variables
         height, weight, age, sex, exercise_level = (
             user_inputs[height_prompt],
             user_inputs[weight_prompt],
@@ -73,6 +76,7 @@ def main() -> None:
             user_inputs[exercise_level_prompt],
         )
 
+        # Checks if the sex and exercise level are valid
         if sex not in ["male", "female"]:
             print("\nError: The inputted sex is invalid!")
             break
@@ -83,15 +87,15 @@ def main() -> None:
 
         # Calculates the basal metabolic rate based on sex
         basal_metabolic_rate = (
-                655 + (4.35 * weight) + (4.7 * height) - (4.7 * age)
+            655 + (4.35 * weight) + (4.7 * height) - (4.7 * age)
         ) if sex == "female" else (
-                66 + (6.23 * weight) + (12.7 * height) - (6.8 * age)
+            66 + (6.23 * weight) + (12.7 * height) - (6.8 * age)
         )
 
         # Calculates the daily caloric allowance based on exercise level
         exercise_factors = [1.2, 1.375, 1.55, 1.725, 1.9]
         daily_caloric_allowance = (
-                exercise_factors[exercise_level - 1] * basal_metabolic_rate
+            exercise_factors[exercise_level - 1] * basal_metabolic_rate
         )
 
         # Prints the calculated daily caloric allowance
