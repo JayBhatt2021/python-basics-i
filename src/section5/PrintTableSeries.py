@@ -7,7 +7,7 @@ def print_series_table(n: int) -> None:
     print("\ni\tsum(i)")
 
     total = 0
-    for i in range(1, n):
+    for i in range(1, n + 1):
         total += i / (i + 1)
         print(f"{i}\t{total:.4f}")
 
