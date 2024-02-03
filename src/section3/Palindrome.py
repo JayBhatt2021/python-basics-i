@@ -4,7 +4,7 @@ def is_palindrome(number: int) -> bool:
     :param number: The number to check for palindrome.
     :return: True if the number is a palindrome, False otherwise.
     """
-    if number < 0 or number % 10 == 0:
+    if number < 0 or (number != 0 and number % 10 == 0):
         return False
 
     original_number, reversed_number = number, 0
