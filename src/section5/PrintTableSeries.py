@@ -9,7 +9,7 @@ def print_series_table(n: int) -> None:
     total = 0
     for i in range(1, n):
         total += i / (i + 1)
-        print(f"{i}\t{total:.3f}")
+        print(f"{i}\t{total:.4f}")
 
     print()
 
