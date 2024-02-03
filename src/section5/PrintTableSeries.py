@@ -1,6 +1,7 @@
 def print_series_table(n: int) -> None:
     """Print a series table.
 
+    :param n: The number of terms in the series.
     :return: None
     """
     print("\ni\tsum(i)")
@@ -14,7 +15,7 @@ def print_series_table(n: int) -> None:
 
 
 def main() -> None:
-    """Display conversion tables for feet to meters and meters to feet.
+    """Display a series table.
 
     :return: None
     """
