@@ -31,7 +31,7 @@ def print_conversion_table(
     """
     print(f"{column_titles[0]}\t{column_titles[1]}")
 
-    for i in range(0, 21):
+    for i in range(1, 21):
         print(f"{i:.1f}\t{conversion_function(i):.3f}")
 
     print()
