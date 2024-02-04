@@ -10,7 +10,7 @@ def main() -> None:
         if gallons == 0:
             print("Gallons must be greater than zero!")
         else:
-            print(f"Miles per gallon: {miles / gallons:.2f}")
+            print(f"\nMiles per gallon: {miles / gallons:.2f}")
     except ValueError:
         print("Inputs must be valid floats! Exiting program...")
 
