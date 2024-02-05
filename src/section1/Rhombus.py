@@ -4,12 +4,12 @@ def print_rhombus(rows: int) -> None:
     :param rows: The number of rows for the upper-half of the rhombus.
     :return: None
     """
-    # Print the upper half of the rhombus
+    # Prints the upper half of the rhombus
     for i in range(1, rows + 1):
         print(" " * (rows - i), end="")
         print("* " * i)
 
-    # Print the lower half of the rhombus
+    # Prints the lower half of the rhombus
     for i in range(rows - 1, 0, -1):
         print(" " * (rows - i), end="")
         print("* " * i)
@@ -21,13 +21,13 @@ def main() -> None:
     :return: None
     """
     try:
-        # Get the number of rows for the rhombus pattern from the user
+        # Gets the number of rows for the rhombus pattern from the user
         rows = int(input("Enter the number of rows for the rhombus: "))
         print()
         print_rhombus(rows)
         print()
     except ValueError:
-        # Handle the case where the input is not a valid integer
+        # Handles the case where the input is not a valid integer
         print("The number of rows must be an integer! Exiting program...")
 
 
