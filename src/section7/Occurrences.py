@@ -29,7 +29,7 @@ def main() -> None:
     try:
         num_list = []
 
-        # Get users input for a list of numbers
+        # Gets user input for a list of numbers
         for i in range(10):
             num = int(input(f"Enter Number #{i + 1}: "))
             num_list.append(num)
