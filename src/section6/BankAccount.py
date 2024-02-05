@@ -42,7 +42,7 @@ class BankAccount:
         """
         return self.annual_interest_rate / 12
 
-    def withdraw(self, amount) -> float:
+    def withdraw(self, amount: float) -> float:
         """Withdraw money from the account.
 
         :param amount: The amount to be withdrawn.
@@ -59,7 +59,7 @@ class BankAccount:
 
         return amount
 
-    def deposit(self, amount) -> float:
+    def deposit(self, amount: float) -> float:
         """Deposit money into the account.
 
         :param amount: The amount to be deposited.
@@ -77,7 +77,7 @@ def main() -> None:
 
     :return: None
     """
-    account = BankAccount(account_id=123456, balance=10000)
+    account = BankAccount(account_id=123456, balance=10000.00)
     account.annual_interest_rate = 2.5
 
     withdrawn_amount = account.withdraw(3500)
