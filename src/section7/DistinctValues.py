@@ -2,33 +2,27 @@ from typing import List, Set
 
 
 def get_distinct_values(num_list: List[int]) -> Set[int]:
-    """Find and return the index of the largest value in the given list.
+    """Find and return the set of distinct values in the given list.
 
     :param num_list: A list of integers.
-    :return: The index of the largest value.
+    :return: A set containing distinct values.
     """
-    if not num_list:
-        raise ValueError("The input list is empty!")
-
     return set(num_list)
 
 
 def main() -> None:
-    """Get user input for a list of numbers and display the index of the largest
-    value.
+    """Get user input for a list of numbers and display the set of distinct
+    values.
 
     :return: None
     """
     try:
-        num_list = []
-
         # Gets user input for a list of numbers
-        for i in range(10):
-            num = int(input(f"Enter Number #{i + 1}: "))
-            num_list.append(num)
+        num_list = [int(input(f"Enter Number #{i + 1}: ")) for i in range(10)]
 
-        # Displays the index of the largest value
-        print(f"\nDistinct values: {get_distinct_values(num_list)}")
+        # Displays the set of distinct values
+        distinct_values = get_distinct_values(num_list)
+        print(f"\nDistinct values: {distinct_values}")
     except ValueError:
         print("Invalid input! Please enter an integer. Exiting program...")
 
