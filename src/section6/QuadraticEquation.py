@@ -16,22 +16,33 @@ class QuadraticEquation:
         self.a = a
         self.b = b
         self.c = c
-        self.discriminant = b ** 2 - 4 * a * c
 
     def calculate_roots(self) -> Tuple[Optional[float], Optional[float]]:
         """Calculate the roots of the quadratic equation.
 
         :return: A tuple containing the roots of the quadratic equation.
         """
-        if self.discriminant < 0:
+        discriminant = self.calculate_discriminant()
+
+        if discriminant < 0:
+            # No real roots if the discriminant is negative
             return None, None
-        elif self.discriminant == 0:
+        elif discriminant == 0:
+            # One real root if the discriminant is zero
             root = -self.b / (2 * self.a)
             return root, None
         else:
-            root1 = (-self.b + math.sqrt(self.discriminant)) / (2 * self.a)
-            root2 = (-self.b - math.sqrt(self.discriminant)) / (2 * self.a)
+            # Two real roots if the discriminant is positive
+            root1 = (-self.b + math.sqrt(discriminant)) / (2 * self.a)
+            root2 = (-self.b - math.sqrt(discriminant)) / (2 * self.a)
             return root1, root2
+
+    def calculate_discriminant(self) -> float:
+        """Calculate and return the discriminant of the quadratic equation.
+
+        :return: The discriminant value.
+        """
+        return self.b ** 2 - 4 * self.a * self.c
 
 
 def main() -> None:
@@ -40,9 +51,9 @@ def main() -> None:
     :return: None
     """
     try:
-        a = float(input("Enter a: "))
-        b = float(input("Enter b: "))
-        c = float(input("Enter c: "))
+        a = float(input("Enter the coefficient a: "))
+        b = float(input("Enter the coefficient b: "))
+        c = float(input("Enter the constant term c: "))
         quadratic_equation = QuadraticEquation(a, b, c)
 
         root_one, root_two = quadratic_equation.calculate_roots()
@@ -50,7 +61,7 @@ def main() -> None:
         print(f"\nRoot #1: {root_one if root_one is not None else 'Undefined'}")
         print(f"Root #2: {root_two if root_two is not None else 'Undefined'}")
     except ValueError:
-        print("Inputs must be floats! Exiting program...")
+        print("Coefficients must be valid floats! Exiting program...")
 
 
 if __name__ == "__main__":
