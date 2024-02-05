@@ -58,8 +58,14 @@ def main() -> None:
 
         root_one, root_two = quadratic_equation.calculate_roots()
 
-        print(f"\nRoot #1: {root_one if root_one is not None else 'Undefined'}")
-        print(f"Root #2: {root_two if root_two is not None else 'Undefined'}")
+        print(
+            f"""\nRoot #1: {round(root_one, 2)
+            if root_one is not None else 'Undefined'}"""
+        )
+        print(
+            f"""Root #2: {round(root_two, 2)
+            if root_two is not None else 'Undefined'}"""
+        )
     except ValueError:
         print("Coefficients must be valid floats! Exiting program...")
 
