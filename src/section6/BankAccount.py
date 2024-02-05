@@ -2,33 +2,24 @@ import datetime
 
 
 class BankAccount:
-    """A simple counter for tracking occurrences."""
+    """Represents a simple bank account."""
 
-    def __init__(self, account_id=None, balance=None) -> None:
-        """Initialize the counter.
+    def __init__(self, account_id=0, balance=0.0) -> None:
+        """Initialize the bank account.
 
+        :param account_id: The account ID.
+        :param balance: The initial account balance.
         :return: None
         """
-        if account_id is None and balance is None:
-            self.account_id = 0
-            self.balance = 0.0
-        elif account_id is None:
-            self.account_id = 0
-            self.balance = balance
-        elif balance is None:
-            self.account_id = account_id
-            self.balance = 0.0
-        else:
-            self.account_id = account_id
-            self.balance = balance
-
+        self.account_id = account_id
+        self.balance = balance
         self.annual_interest_rate = 0.0
         self.date_created = datetime.datetime.now()
 
-    def __str__(self):
-        """
+    def __str__(self) -> str:
+        """Return a string representation of the bank account.
 
-        :return:
+        :return: A formatted string containing account information.
         """
         return (
             f"Account ID: {self.account_id}\nAccount Balance: "
@@ -37,46 +28,42 @@ class BankAccount:
             f"{self.date_created.strftime('%m/%d/%Y, %H:%M:%S')}"
         )
 
-    def __repr__(self):
-        """
-
-        :return:
-        """
-        return f""
-
     def get_monthly_interest(self) -> float:
-        """Increment the counter.
+        """Calculate the monthly interest.
 
-        :return: None
+        :return: The calculated monthly interest.
         """
         return self.balance * self.get_monthly_interest_rate() / 100
 
     def get_monthly_interest_rate(self) -> float:
-        """Increment the counter.
+        """Get the monthly interest rate.
 
-        :return: None
+        :return: The monthly interest rate.
         """
         return self.annual_interest_rate / 12
 
     def withdraw(self, amount) -> float:
-        """Increment the counter.
+        """Withdraw money from the account.
 
-        :return: None
+        :param amount: The amount to be withdrawn.
+        :return: The withdrawn amount.
         """
         if amount < 0:
             return 0.0
 
         if amount > self.balance:
+            amount = self.balance
             self.balance = 0
-            return self.balance
+        else:
+            self.balance -= amount
 
-        self.balance -= amount
         return amount
 
     def deposit(self, amount) -> float:
-        """Increment the counter.
+        """Deposit money into the account.
 
-        :return: None
+        :param amount: The amount to be deposited.
+        :return: The deposited amount.
         """
         if amount < 0:
             return 0.0
@@ -86,16 +73,20 @@ class BankAccount:
 
 
 def main() -> None:
-    """Simulate 100 coin flips and count the number of heads and tails.
+    """Simulate bank account operations and display account information.
 
     :return: None
     """
-    account = BankAccount(123456, 10000)
+    account = BankAccount(account_id=123456, balance=10000)
     account.annual_interest_rate = 2.5
-    account.withdraw(3500)
-    account.deposit(500)
+
+    withdrawn_amount = account.withdraw(3500)
+    deposited_amount = account.deposit(500)
+
     print(account)
-    print(f"\nMonthly Interest: ${account.get_monthly_interest():.2f}")
+    print(f"\nWithdrawn Amount: ${withdrawn_amount:.2f}")
+    print(f"Deposited Amount: ${deposited_amount:.2f}")
+    print(f"Monthly Interest: ${account.get_monthly_interest():.2f}")
 
 
 if __name__ == "__main__":
