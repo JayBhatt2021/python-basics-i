@@ -18,3 +18,7 @@ def main() -> None:
         print(f"Average of x, y, and z: {total / 3:.2f}")
     except ValueError:
         print("The input must be a valid float! Exiting program...")
+
+
+if __name__ == "__main__":
+    main()
