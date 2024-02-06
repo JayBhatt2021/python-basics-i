@@ -9,19 +9,19 @@ def main() -> None:
 
         # Provides feedback based on the grade
         if grade == 100:
-            print("This grade is a perfect score. Well done!")
+            print("\nThis grade is a perfect score. Well done!")
         elif 90 <= grade < 100:
-            print("This grade is well above average. Excellent work!")
+            print("\nThis grade is well above average. Excellent work!")
         elif 80 <= grade < 90:
-            print("This grade is above average. Nice job!")
+            print("\nThis grade is above average. Nice job!")
         elif 70 <= grade < 80:
-            print("This grade is average.")
+            print("\nThis grade is average.")
         elif 60 <= grade < 70:
-            print("This grade is below average.")
-        elif grade < 60:
-            print("This grade is a failing grade.")
+            print("\nThis grade is below average.")
+        elif 0 <= grade < 60:
+            print("\nThis grade is a failing grade.")
         else:
-            print("Invalid grade value!")
+            print("\nInvalid grade value!")
     except ValueError:
         print("Grade must be a valid integer! Exiting program...")
 
