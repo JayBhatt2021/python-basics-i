@@ -19,7 +19,7 @@ def main() -> None:
         cents = total_cents % 100
 
         # Displays the total value in dollars and cents
-        print(f"\nYou have ${dollars}.{cents}.")
+        print(f"\nYou have ${dollars}.{'0' if cents < 10 else ''}{cents}.")
     except ValueError:
         print("The input must be a valid integer! Exiting program...")
 
