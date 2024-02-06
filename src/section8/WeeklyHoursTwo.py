@@ -1,50 +1,63 @@
 from typing import List, Tuple
 import random
 
+DAYS_OF_WEEK = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+"""A list containing the days of the week."""
 
-def generate_random_work_hours() -> List[List[int]]:
-    """Generate a list of random work hours.
 
-    :param size: The number of work hours to generate.
-    :return: A list containing random work hours.
+def generate_random_work_hours(
+    num_employees: int = 3, num_days: int = 7
+) -> List[List[int]]:
+    """Generate a list of random work hours for each employee for each day of
+    the week.
+
+    :param num_employees: The number of employees.
+    :param num_days: The number of days in a week.
+    :return: A list containing random work hours for each employee for each day.
     """
-    return [[random.randint(0, 10) for _ in range(7)] for _ in range(3)]
+    return [
+        [random.randint(0, 10) for _ in range(num_days)] for _ in
+        range(num_employees)
+    ]
 
 
 def display_work_hours_table(work_hours: List[List[int]]) -> None:
     """Display the work hours in a formatted table.
 
-    :param work_hours: A list of work hours.
+    :param work_hours: A list of work hours for each employee for each day.
     :return: None
     """
-    days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-
     print("Employee Work Hours:")
-    print("\t" + "\t".join(days))
+    print("\t" + "\t".join(DAYS_OF_WEEK))
 
-    for i, week_hours in enumerate(work_hours, start=1):
-        for j, day_hours in enumerate(week_hours, start=1):
+    for employee_num, week_hours in enumerate(work_hours, start=1):
+        formatted_hours = [
             # Constructs the string representing the day's work hours along with
             # the employee number if it is the first day of the week
-            day_hours_element = f"E{i}\t{day_hours}" if j % 7 == 1 \
-                else day_hours
+            f"E{employee_num}\t{day_hours}" if i == 0 else str(day_hours)
+            for i, day_hours in enumerate(week_hours)
+        ]
 
-            # Prints the formatted string representing the day's work hours
-            print(f"{day_hours_element}", end="\n" if j % 7 == 0 else "\t")
+        # Prints the formatted list representing the weekly work hours
+        print("\t".join(formatted_hours))
 
 
-def calculate_weekly_hours(work_hours: List[List[int]]) -> List[Tuple[int, int]]:
+def calculate_weekly_hours(work_hours: List[List[int]]) \
+        -> List[Tuple[int, int]]:
     """Calculate and return the weekly work hours for each employee.
 
-    :param work_hours: A list of daily work hours.
+    :param work_hours: A list of work hours for each employee for each day.
     :return: A list containing the weekly work hours for each employee.
     """
-    #
-    weekly_hours = [(employee_num, sum(week_hours)) for employee_num, week_hours
-                    in enumerate(work_hours, start=1)]
+    # Calculates the weekly work hours for each employee
+    weekly_hours = [
+        (employee_num, sum(week_hours))
+        for employee_num, week_hours in enumerate(work_hours, start=1)
+    ]
 
-    #
-    weekly_hours.sort(key=lambda x: x[1])
+    # Sorts the weekly_hours list based on the total hours worked in a week
+    # (tup[1]) for each employee
+    weekly_hours.sort(key=lambda tup: tup[1])
 
     return weekly_hours
 
