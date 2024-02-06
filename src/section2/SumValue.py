@@ -12,7 +12,7 @@ def main() -> None:
         total = x + y + z
 
         # Displays the sum of x, y, and z
-        print(f"Sum of x, y, and z: {total:.2f}")
+        print(f"\nSum of x, y, and z: {total:.2f}")
 
         # Calculates and displays the average of x, y, and z
         print(f"Average of x, y, and z: {total / 3:.2f}")
