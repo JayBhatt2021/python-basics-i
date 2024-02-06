@@ -42,6 +42,30 @@ def display_work_hours_table(work_hours: List[List[int]]) -> None:
         print("\t".join(formatted_hours))
 
 
+def display_most_hours_worked(work_hours: List[List[int]]) -> None:
+    """Display the work hours in a formatted table.
+
+    :param work_hours: A list of work hours for each employee for each day.
+    :return: None
+    """
+    print()
+
+    for employee_num, week_hours in enumerate(work_hours, start=1):
+        max_hours = week_hours[0]
+        max_hours_day = DAYS_OF_WEEK[0]
+
+        #
+        for i in range(len(week_hours)):
+            if week_hours[i] > max_hours:
+                max_hours = week_hours[i]
+                max_hours_day = DAYS_OF_WEEK[i]
+
+        print(
+            f"Employee #{employee_num} worked the most hours on "
+            f"{max_hours_day}."
+        )
+
+
 def calculate_weekly_hours(work_hours: List[List[int]]) \
         -> List[Tuple[int, int]]:
     """Calculate and return the weekly work hours for each employee.
@@ -95,7 +119,10 @@ def main() -> None:
     # Displays the work hours in a 3x7 table
     display_work_hours_table(work_hours)
 
-    # Calculates and displays additional statistics
+    #
+    display_most_hours_worked(work_hours)
+
+    #
     weekly_hours = calculate_weekly_hours(work_hours)
     display_weekly_hours(weekly_hours)
 
