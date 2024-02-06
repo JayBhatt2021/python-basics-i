@@ -1,5 +1,5 @@
 def main() -> None:
-    """Calculate the sum and average of three numbers entered by the user.
+    """Perform basic arithmetic operations on two numbers entered by the user.
 
     :return: None
     """
@@ -7,7 +7,8 @@ def main() -> None:
         x = float(input("Enter x: "))
         y = float(input("Enter y: "))
 
-        # Displays the sum of x, y, and z
+        # Performs addition, subtraction, multiplication, division, floor
+        # division, and modulus operations on x and y
         print(f"\nx + y = {x + y:.2f}")
         print(f"x - y = {x - y:.2f}")
         print(f"x * y = {x * y:.2f}")
