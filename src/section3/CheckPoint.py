@@ -11,21 +11,21 @@ def main() -> None:
 
         # Checks if the point lies on the origin or axis
         if x == 0 and y == 0:
-            print("(0, 0) is on the origin.")
+            print("\n(0, 0) is on the origin.")
         elif x == 0:
-            print(f"({x}, {y}) is on the y-axis.")
+            print(f"\n(0, {y}) is on the y-axis.")
         elif y == 0:
-            print(f"({x}, {y}) is on the x-axis.")
+            print(f"\n({x}, 0) is on the x-axis.")
 
         # Determines the quadrant where the point lies
         if x > 0 and y > 0:
-            print(f"({x}, {y}) is in the first quadrant.")
+            print(f"\n({x}, {y}) is in the first quadrant.")
         elif x < 0 < y:
-            print(f"({x}, {y}) is in the second quadrant.")
+            print(f"\n({x}, {y}) is in the second quadrant.")
         elif x < 0 and y < 0:
-            print(f"({x}, {y}) is in the third quadrant.")
+            print(f"\n({x}, {y}) is in the third quadrant.")
         elif y < 0 < x:
-            print(f"({x}, {y}) is in the fourth quadrant.")
+            print(f"\n({x}, {y}) is in the fourth quadrant.")
     except ValueError:
         # Handles invalid inputs
         print("Invalid input! Coordinates must be integers. Exiting program...")
