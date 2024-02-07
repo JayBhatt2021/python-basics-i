@@ -14,6 +14,7 @@ def main() -> None:
             exit(1)
 
         # Constructs the square pattern
+        print()
         for _ in range(rows):
             print(symbol * rows)
     except ValueError:
