@@ -20,8 +20,9 @@ class Rectangle:
         perimeter = self.calculate_perimeter()
         area = self.calculate_area()
         return (
-            f"Length: {self.length:.2f} units\nWidth: {self.width:.2f} units\n"
-            f"Perimeter: {perimeter:.2f} units\nArea: {area:.2f} square units"
+            f"Length: {self.length:.2f} unit(s)\nWidth: {self.width:.2f} "
+            f"unit(s)\nPerimeter: {perimeter:.2f} unit(s)\nArea: {area:.2f} "
+            f"square unit(s)"
         )
 
     def calculate_perimeter(self) -> float:
