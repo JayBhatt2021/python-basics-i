@@ -6,6 +6,7 @@ class Stock:
 
         :param name: The name of the stock.
         :param symbol: The symbol of the stock.
+        :return: None
         """
         self.name = name
         self.symbol = symbol
