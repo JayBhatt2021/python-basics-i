@@ -47,7 +47,7 @@ def main() -> None:
                         print("\nYou correctly guessed the secret number!")
                         break
                 except ValueError:
-                    print("Invalid input! Please enter an integer.")
+                    print("\nInvalid input! Please enter an integer.")
 
             user_replay = input("Want to play again? (Enter 'yes' or 'no'): ")
             replay = user_replay.strip().lower() == "yes"
