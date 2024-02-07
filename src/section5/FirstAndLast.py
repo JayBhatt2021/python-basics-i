@@ -33,6 +33,11 @@ def main() -> None:
 
             num_list.append(num)
 
+        # Checks if the list is empty
+        if not num_list:
+            print("The list of integers must not be empty!")
+            exit(1)
+
         # Gets the first and last integers from the list
         first, last = get_first_and_last_integers(num_list)
         print(f"\nThe first integer entered is {first}.")
