@@ -1,10 +1,9 @@
 class Radio:
-    """Represents a circle with a given radius."""
+    """Represents a radio with station and volume controls."""
 
     def __init__(self) -> None:
-        """Initialize the circle with a radius.
+        """Initialize the radio with default settings.
 
-        :param radius: The radius of the circle (default is 1.0).
         :return: None
         """
         self.station = 1
@@ -12,122 +11,122 @@ class Radio:
         self.is_on = False
 
     def __str__(self) -> str:
-        """Return a string representation of the circle.
+        """Return a string representation of the radio.
 
-        :return: A string containing circle information.
+        :return: A string containing radio information.
         """
+        status = "On" if self.is_on else "Off"
         return (
             f"Station Level: {self.station}\n"
             f"Volume Level: {self.volume}\n"
-            f"Status: {self.is_on}"
+            f"Status: {status}"
         )
 
     def turn_on(self) -> None:
-        """Initialize the circle with a radius.
+        """Turn on the radio.
 
-        :param radius: The radius of the circle (default is 1.0).
         :return: None
         """
         self.is_on = True
 
     def turn_off(self) -> None:
-        """Initialize the circle with a radius.
+        """Turn off the radio.
 
-        :param radius: The radius of the circle (default is 1.0).
         :return: None
         """
         self.is_on = False
 
     def station_up(self, to_add: int) -> None:
-        """Initialize the circle with a radius.
+        """Increase the station level.
 
-        :param radius: The radius of the circle (default is 1.0).
+        :param to_add: The value to add to the current station level.
         :return: None
         """
         if self.is_on:
-            if self.station + to_add < 10:
-                self.station += to_add
-            else:
-                self.station = 10
+            # Ensures station level does not exceed maximum (10)
+            self.station = min(10, self.station + to_add)
 
-    def station_down(self, to_subtract) -> None:
-        """Initialize the circle with a radius.
+    def station_down(self, to_subtract: int) -> None:
+        """Decrease the station level.
 
-        :param radius: The radius of the circle (default is 1.0).
+        :param to_subtract: The value to subtract from the current station
+                            level.
         :return: None
         """
         if self.is_on:
-            if self.station - to_subtract > 1:
-                self.station -= to_subtract
-            else:
-                self.station = 1
+            # Ensures station level does not go below minimum (1)
+            self.station = max(1, self.station - to_subtract)
 
     def volume_up(self, to_add: int) -> None:
-        """Initialize the circle with a radius.
+        """Increase the volume level.
 
-        :param radius: The radius of the circle (default is 1.0).
+        :param to_add: The value to add to the current volume level.
         :return: None
         """
         if self.is_on:
-            if self.volume + to_add < 10:
-                self.volume += to_add
-            else:
-                self.volume = 10
+            # Ensures volume level does not exceed maximum (10)
+            self.volume = min(10, self.volume + to_add)
 
     def volume_down(self, to_subtract: int) -> None:
-        """Initialize the circle with a radius.
+        """Decrease the volume level.
 
-        :param radius: The radius of the circle (default is 1.0).
+        :param to_subtract: The value to subtract from the current volume level.
         :return: None
         """
         if self.is_on:
-            if self.volume - to_subtract > 1:
-                self.volume -= to_subtract
-            else:
-                self.volume = 1
+            # Ensures volume level does not go below minimum (1)
+            self.volume = max(1, self.volume - to_subtract)
 
 
 def main() -> None:
-    """Create and display information for a circle with the default and modified
-    radius.
+    """Simulate radio operations.
 
     :return: None
     """
-    # Creates and prints the radio
+    # Creates the radio
     radio = Radio()
-    print(f"Creating radio:\n{radio}")
+    print("Creating radio:")
+    print(radio)
 
     # Turns the radio on
     radio.turn_on()
-    print(f"Turning the radio on:\n{radio}")
+    print("\nTurning the radio on:")
+    print(radio)
 
     # Increases volume level by 3
     radio.volume_up(3)
-    print(f"Increasing volume level by 3:\n{radio}")
+    print("\nIncreasing volume level by 3:")
+    print(radio)
 
     # Increases station level by 5
     radio.station_up(5)
-    print(f"Increasing station level by 5:\n{radio}")
+    print("\nIncreasing station level by 5:")
+    print(radio)
 
     # Decreases volume level by 1
     radio.volume_down(1)
-    print(f"Decreasing volume level by 1:\n{radio}")
+    print("\nDecreasing volume level by 1:")
+    print(radio)
 
     # Increases station level by 3
     radio.station_up(3)
-    print(f"Increasing station level by 3:\n{radio}")
+    print("\nIncreasing station level by 3:")
+    print(radio)
 
     # Turns the radio off
     radio.turn_off()
-    print(f"Turning the radio off:\n{radio}")
+    print("\nTurning the radio off:")
+    print(radio)
 
     # Attempts to increase volume level by 2
     radio.volume_up(2)
-    print(f"Attempting to increase volume level by 2:\n{radio}")
+    print("\nAttempting to increase volume level by 2 (Radio is off):")
+    print(radio)
 
     # Attempts to decrease station level by 2
     radio.station_down(2)
-    print(f"Attempting to decrease station level by 2:\n{radio}")
+    print("\nAttempting to decrease station level by 2 (Radio is off):")
+    print(radio)
 
 
 if __name__ == "__main__":
