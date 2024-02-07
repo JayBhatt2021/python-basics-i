@@ -8,7 +8,7 @@ def print_characters(starting_character: str, ending_character: str) -> None:
     count = 0
     print("\nOutput:")
 
-    # Iterates through characters from starting to ending character
+    # Iterates through characters from the starting to ending characters
     for i in range(ord(starting_character), ord(ending_character) + 1):
         count += 1
         print(chr(i), end="\n" if count % 5 == 0 else "\t")
@@ -21,21 +21,21 @@ def main() -> None:
 
     :return: None
     """
-    # Gets input for starting and ending characters
+    # Gets input for the starting and ending characters
     start = input("Enter the starting character: ")
     end = input("Enter the ending character: ")
 
     # Checks input validity
     if len(start) != 1 or len(end) != 1:
         print("The length of the character must be one!")
-        return
+        exit(1)
 
     if start > end:
         print(
             "The ending character must come after or be the same as the "
             "starting character!"
         )
-        return
+        exit(1)
 
     # Prints the series table
     print_characters(start, end)
