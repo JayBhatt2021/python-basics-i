@@ -8,10 +8,9 @@ def count_online_users(users_dict: Dict[str, str]) -> int:
                        corresponding online statuses as values.
     :return: The number of online users.
     """
-    online_users = sum(
+    return sum(
         1 for status in users_dict.values() if status == "online"
     )
-    return online_users
 
 
 def main() -> None:
