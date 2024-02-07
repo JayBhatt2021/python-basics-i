@@ -65,8 +65,8 @@ def main() -> None:
         base = float(input("\nEnter the triangle base: "))
         height = float(input("Enter the triangle height: "))
         print(
-            f"Triangle area: {calculate_triangle_area(base, height):.2f} square"
-            f"units"
+            f"Triangle area: {calculate_triangle_area(base, height):.2f} "
+            f"square units"
         )
     except ValueError:
         # Handles invalid input type
