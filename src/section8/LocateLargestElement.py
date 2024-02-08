@@ -2,7 +2,7 @@ from typing import List, Tuple
 
 
 def construct_matrix(rows: int = 3, cols: int = 4) -> List[List[int]]:
-    """Generate a list representing a matrix of given dimensions.
+    """Generate a matrix of given dimensions and display it.
 
     :param rows: The number of rows in the matrix (default is 3).
     :param cols: The number of columns in the matrix (default is 4).
@@ -30,27 +30,24 @@ def construct_matrix(rows: int = 3, cols: int = 4) -> List[List[int]]:
 
 
 def locate_largest(matrix: List[List[int]]) -> Tuple[int, int, int]:
-    """Calculate and display the sum of each column in the matrix.
+    """Locate the largest element in the matrix.
 
-    :param matrix: The matrix for which to calculate column sums.
-    :return: None
+    :param matrix: The matrix to search for the largest element.
+    :return: A tuple containing the row index, column index, and value of the
+             largest element.
     """
-    largest_i = 0
-    largest_j = 0
-    largest_element = matrix[largest_i][largest_j]
+    largest_i, largest_j, largest_element = 0, 0, matrix[0][0]
 
-    for i in range(len(matrix)):
-        for j in range(len(list(zip(*matrix)))):
-            if matrix[i][j] > largest_element:
-                largest_element = matrix[i][j]
-                largest_i = i
-                largest_j = j
+    for i, row in enumerate(matrix):
+        for j, value in enumerate(row):
+            if value > largest_element:
+                largest_i, largest_j, largest_element = i, j, value
 
     return largest_i, largest_j, largest_element
 
 
 def main() -> None:
-    """Generate and display a matrix, and calculate column sums.
+    """Generate and display a matrix, and locate the largest element.
 
     :return: None
     """
