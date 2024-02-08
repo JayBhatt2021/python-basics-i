@@ -44,16 +44,15 @@ def insertion_sort(num_list: List[int]) -> Tuple[List[int], int]:
     swaps = 0
 
     for i in range(1, n):
-        temp = num_list[i]
+        key = num_list[i]
         j = i - 1
 
-        while j >= 0 and temp < num_list[j]:
+        while j >= 0 and num_list[j] > key:
             num_list[j + 1] = num_list[j]
             j -= 1
             swaps += 1
 
-        num_list[j + 1] = temp
-        swaps += 1
+        num_list[j + 1] = key
 
     return num_list, swaps
 
@@ -69,15 +68,14 @@ def selection_sort(num_list: List[int]) -> Tuple[List[int], int]:
     swaps = 0
 
     for i in range(n - 1):
-        pos_smallest = i
+        min_idx = i
         for j in range(i + 1, n):
-            if num_list[j] < num_list[pos_smallest]:
-                pos_smallest = j
+            if num_list[j] < num_list[min_idx]:
+                min_idx = j
 
-        num_list[i], num_list[pos_smallest] = (
-            num_list[pos_smallest], num_list[i]
-        )
-        swaps += 1
+        if min_idx != i:
+            num_list[i], num_list[min_idx] = num_list[min_idx], num_list[i]
+            swaps += 1
 
     return num_list, swaps
 
