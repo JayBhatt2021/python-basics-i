@@ -15,16 +15,17 @@ def generate_random_list(size: int = 50, start: int = 0, end: int = 100) \
 
 
 def bubble_sort(num_list: List[int]) -> Tuple[List[int], int]:
-    """Perform linear search to find the target value in the list.
+    """Sort a list using bubble sort algorithm.
 
-    :param num_list: The list of integers to search.
-    :param target: The target value to search for.
-    :return: The number of comparisons made during the search.
+    :param num_list: The list of integers to be sorted.
+    :return: A tuple containing the sorted list and the number of swaps
+             performed.
     """
+    n = len(num_list)
     swaps = 0
 
-    for i in range(len(num_list) - 1):
-        for j in range(len(num_list) - i - 1):
+    for i in range(n - 1):
+        for j in range(n - 1 - i):
             if num_list[j] > num_list[j + 1]:
                 num_list[j], num_list[j + 1] = num_list[j + 1], num_list[j]
                 swaps += 1
@@ -33,53 +34,57 @@ def bubble_sort(num_list: List[int]) -> Tuple[List[int], int]:
 
 
 def insertion_sort(num_list: List[int]) -> Tuple[List[int], int]:
-    """Perform linear search to find the target value in the list.
+    """Sort a list using insertion sort algorithm.
 
-    :param num_list: The list of integers to search.
-    :param target: The target value to search for.
-    :return: The number of comparisons made during the search.
+    :param num_list: The list of integers to be sorted.
+    :return: A tuple containing the sorted list and the number of swaps
+             performed.
     """
+    n = len(num_list)
     swaps = 0
 
-    for position in range(1, len(num_list)):
-        key = num_list[position]
+    for i in range(1, n):
+        temp = num_list[i]
+        j = i - 1
 
-        while position > 0 and key < num_list[position - 1]:
-            num_list[position] = num_list[position - 1]
-            position -= 1
+        while j >= 0 and temp < num_list[j]:
+            num_list[j + 1] = num_list[j]
+            j -= 1
             swaps += 1
 
-        num_list[position] = key
+        num_list[j + 1] = temp
+        swaps += 1
 
     return num_list, swaps
 
 
 def selection_sort(num_list: List[int]) -> Tuple[List[int], int]:
-    """Perform linear search to find the target value in the list.
+    """Sort a list using selection sort algorithm.
 
-    :param num_list: The list of integers to search.
-    :param target: The target value to search for.
-    :return: The number of comparisons made during the search.
+    :param num_list: The list of integers to be sorted.
+    :return: A tuple containing the sorted list and the number of swaps
+             performed.
     """
+    n = len(num_list)
     swaps = 0
 
-    for i in range(len(num_list)):
-        min_position = i
+    for i in range(n - 1):
+        pos_smallest = i
+        for j in range(i + 1, n):
+            if num_list[j] < num_list[pos_smallest]:
+                pos_smallest = j
 
-        for j in range(i + 1, len(num_list)):
-            if num_list[j] < num_list[min_position]:
-                min_position = j
-
-            if i != min_position and min_position < len(num_list):
-                num_list[min_position], num_list[i] = num_list[i], num_list[
-                    min_position]
-                swaps += 1
+        num_list[i], num_list[pos_smallest] = (
+            num_list[pos_smallest], num_list[i]
+        )
+        swaps += 1
 
     return num_list, swaps
 
 
 def main() -> None:
-    """Generate a list of integers, and perform linear and binary searches.
+    """Generate a list of integers, and perform bubble, insertion, and selection
+    sorts.
 
     :return: None
     """
