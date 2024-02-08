@@ -5,7 +5,7 @@ file hierarchy has been organized for ease of navigation in the terminal.
 
 ## Installation
 
-To get started, `git clone` this repository and navigate to the `src` directory:
+To get started, `git clone` this repository, and navigate to the `src` directory:
 
 ```bash
 $ git clone https://github.com/JayBhatt2021/python-basics-i.git
