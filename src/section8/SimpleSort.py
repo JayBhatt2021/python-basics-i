@@ -118,7 +118,7 @@ def main() -> None:
     """
     # Generates a list of random integers
     num_list = generate_random_list()
-    print("\nList Values:", num_list)
+    print("List Values:", num_list)
 
     # Performs bubble sort and prints results
     bubble_sorted_list, bubble_sort_swaps = bubble_sort(num_list[:])
