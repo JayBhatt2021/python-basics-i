@@ -1,12 +1,13 @@
-from typing import List, Tuple
+from typing import List
 
 
 def construct_matrix(rows: int = 3, cols: int = 3, name: str = "Default") -> \
         List[List[int]]:
-    """Generate a matrix of given dimensions and display it.
+    """Generate a matrix of given dimensions.
 
     :param rows: The number of rows in the matrix (default is 3).
     :param cols: The number of columns in the matrix (default is 3).
+    :param name: The name of the matrix (default is "Default").
     :return: A list containing the elements of the matrix.
     """
     matrix = []
@@ -26,47 +27,43 @@ def construct_matrix(rows: int = 3, cols: int = 3, name: str = "Default") -> \
 
 
 def display_matrix(matrix: List[List[int]], name: str = "Default") -> None:
-    """Generate a matrix of given dimensions and display it.
+    """Display the matrix with its name.
 
-    :param rows: The number of rows in the matrix (default is 3).
-    :param cols: The number of columns in the matrix (default is 4).
-    :return: A list containing the elements of the matrix.
+    :param matrix: The matrix to be displayed.
+    :param name: The name of the matrix (default is "Default").
+    :return: None
     """
     print(f"\nMatrix {name}:")
     for row in matrix:
         print("\t".join(map(str, row)))
 
 
-def add(matrix_one: List[List[int]], matrix_two: List[List[int]], ) -> List[
-    List[int]]:
-    """Locate the largest element in the matrix.
+def add(matrix_one: List[List[int]], matrix_two: List[List[int]]) \
+        -> List[List[int]]:
+    """Add two matrices and return the result.
 
-    :param matrix: The matrix to search for the largest element.
-    :return: A tuple containing the row index, column index, and value of the
-             largest element.
+    :param matrix_one: The first matrix to be added.
+    :param matrix_two: The second matrix to be added.
+    :return: The sum of the two matrices.
     """
-    if len(matrix_one) != len(matrix_two) and len(matrix_one[0]) != len(
+    if len(matrix_one) != len(matrix_two) or len(matrix_one[0]) != len(
             matrix_two[0]):
-        print("The matrices must have the same dimensions!")
-        return
+        print("\nThe matrices must have the same dimensions!")
+        return []
 
     added_matrices = []
     for i in range(len(matrix_one)):
         matrix_row = []
         for j in range(len(matrix_one[0])):
-            matrix_row.append(0)
+            matrix_row.append(matrix_one[i][j] + matrix_two[i][j])
 
         added_matrices.append(matrix_row)
-
-    for i in range(len(matrix_one)):
-        for j in range(len(matrix_one[0])):
-            added_matrices[i][j] = matrix_one[i][j] + matrix_two[i][j]
 
     return added_matrices
 
 
 def main() -> None:
-    """Generate and display a matrix, and locate the largest element.
+    """Generate and display matrices, and compute their sum.
 
     :return: None
     """
@@ -78,7 +75,8 @@ def main() -> None:
         display_matrix(matrix_b, "B")
 
         added_matrices = add(matrix_a, matrix_b)
-        display_matrix(added_matrices, "A + B")
+        if added_matrices:
+            display_matrix(added_matrices, "A + B")
     except ValueError:
         print("Invalid input! Please enter integers for matrix elements.")
     except KeyboardInterrupt:
