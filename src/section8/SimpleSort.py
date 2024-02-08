@@ -30,10 +30,10 @@ def bubble_sort(num_list: List[int]) -> Tuple[List[int], int]:
         for j in range(n - 1 - i):
             # If the current element is greater than the next element
             if num_list[j] > num_list[j + 1]:
-                # Swap the elements
+                # 1) Swap the elements
                 num_list[j], num_list[j + 1] = num_list[j + 1], num_list[j]
 
-                # Increment the swaps counter
+                # 2) Increment the swaps counter
                 swaps += 1
 
     return num_list, swaps
