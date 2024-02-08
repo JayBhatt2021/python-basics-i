@@ -2,12 +2,10 @@ from typing import List
 
 
 def construct_num_list(size: int = 10) -> List[int]:
-    """Generate a matrix of given dimensions.
+    """Generate a list of integers of given size.
 
-    :param rows: The number of rows in the matrix (default is 3).
-    :param cols: The number of columns in the matrix (default is 3).
-    :param name: The name of the matrix (default is "Default").
-    :return: A list containing the elements of the matrix.
+    :param size: The size of the list (default is 10).
+    :return: A list containing the integers entered by the user.
     """
     num_list = []
 
@@ -19,12 +17,12 @@ def construct_num_list(size: int = 10) -> List[int]:
     return num_list
 
 
-def linear_search(num_list: List[int], target: int) -> None:
-    """Add two matrices and return the result.
+def linear_search(num_list: List[int], target: int) -> int:
+    """Perform linear search to find the target value in the list.
 
-    :param matrix_one: The first matrix to be added.
-    :param matrix_two: The second matrix to be added.
-    :return: The sum of the two matrices.
+    :param num_list: The list of integers to search.
+    :param target: The target value to search for.
+    :return: The number of comparisons made during the search.
     """
     comparisons = 0
 
@@ -34,18 +32,18 @@ def linear_search(num_list: List[int], target: int) -> None:
         if num == target:
             break
 
-    print(f"\nLinear Search Comparisons: {comparisons}")
+    return comparisons
 
 
-def binary_search(num_list: List[int], target: int) -> None:
-    """Add two matrices and return the result.
+def binary_search(num_list: List[int], target: int) -> int:
+    """Perform binary search to find the target value in the sorted list.
 
-    :param matrix_one: The first matrix to be added.
-    :param matrix_two: The second matrix to be added.
-    :return: The sum of the two matrices.
+    :param num_list: The sorted list of integers to search.
+    :param target: The target value to search for.
+    :return: The number of comparisons made during the search.
     """
     start = 0
-    end = len(num_list)
+    end = len(num_list) - 1
     comparisons = 0
 
     while start <= end:
@@ -59,11 +57,11 @@ def binary_search(num_list: List[int], target: int) -> None:
         else:
             end = middle - 1
 
-    print(f"Binary Search Comparisons: {comparisons}")
+    return comparisons
 
 
 def main() -> None:
-    """Generate and display matrices, and compute their sum.
+    """Generate a list of integers, and perform linear and binary searches.
 
     :return: None
     """
@@ -74,10 +72,12 @@ def main() -> None:
         print("\nList Values:", num_list)
         print("Target Value:", target)
 
-        linear_search(num_list, target)
+        linear_comparisons = linear_search(num_list, target)
+        print(f"\nLinear Search Comparisons: {linear_comparisons}")
 
         num_list.sort()
-        binary_search(num_list, target)
+        binary_comparisons = binary_search(num_list, target)
+        print(f"Binary Search Comparisons: {binary_comparisons}")
     except ValueError:
         print("Invalid input! Please enter integers for list elements.")
     except KeyboardInterrupt:
