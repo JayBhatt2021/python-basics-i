@@ -101,10 +101,10 @@ def selection_sort(num_list: List[int]) -> Tuple[List[int], int]:
         # If the smallest element is not at its correct position, swap it with
         # the element at the current index
         if min_idx != i:
-            # Swap the elements
+            # Swaps the elements
             num_list[i], num_list[min_idx] = num_list[min_idx], num_list[i]
 
-            # Increment the swaps counter
+            # Increments the swaps counter
             swaps += 1
 
     return num_list, swaps
